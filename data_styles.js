@@ -1,3 +1,13 @@
+/* -------------------------------------------------------------------------------- *\
+   Data Styles
+   
+   By James Robert Huggins Ngo
+   https://github.com/JamesRobertNgo/
+   
+   This work is licensed under a Creative Commons Attribution 4.0 International License.
+   http://creativecommons.org/licenses/by/4.0/
+\* -------------------------------------------------------------------------------- */
+
 
 // Main function
 // E.g. dataStyles([['data-style-all', 'all'], ['data-style-tablet', 'all and (min-width: 500px)'], ['data-style-desktop', 'all and (min-width: 720px)']]);
