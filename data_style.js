@@ -1,3 +1,4 @@
+
 /* -------------------------------------------------------------------------------- *\
    Data Styles
    
@@ -8,31 +9,40 @@
    http://creativecommons.org/licenses/by/4.0/
 \* -------------------------------------------------------------------------------- */
 
-(function dataStyle() {
-	var def = '';
-	var el = document.querySelectorAll('[data-style]');
-	
-	for (var i = 0; i < el.length; i++) {
-		var id = el[i].getAttribute('id');
-		if (!id) {
-			id = 'id' + Math.floor(Math.random() * 1000000);
-			el[i].setAttribute('id', id);
-		}
-		
-		def += '/* -- #' + id + ' -- */';
-		
-		var style = el[i].getAttribute('style');
-		if (style) {
-			def += '#id' + id + ' { ' + style + ' } ';
-		}
-		
-		style = el[i].getAttribute('data-style');
-		if (style) {
-			def += style.replace(/{/g, '{ #' + id + ' { ').replace(/}/g, '} }');
+(function() {
+
+	var styleElements = document.querySelectorAll('[data-style-id]');
+	for (var i = 0; i < styleElements.length; i++) {
+
+		var styleElement = styleElements[i];
+		var dataStyleId = styleElement.getAttribute('data-style-id');
+
+		var elements = document.querySelectorAll('[data-style-' + dataStyleId + ']');
+		for (var j = 0; j < elements.length; j++) {
+
+			var element = elements[j];
+			var style = '';
+
+			if (element.getAttribute('data-style-selector')) {
+
+				style += element.getAttribute('data-style-selector');
+
+			} else {
+
+				var id = element.getAttribute('id');
+
+				if (!id) {
+					id = 'id' + (new Date()).getTime() + '_' + Math.floor((Math.random() * 1000));
+					element.setAttribute('id', id);
+				}
+
+				style += '#' + id;
+			}
+
+			style += ' { ' + element.getAttribute('data-style-' + dataStyleId) + ' } ';
+
+			styleElement.innerHTML += style + '\n';
 		}
 	}
-	
-	var style = document.createElement('style');
-	style.innerHTML = def.replace(/\s+/g, ' ').replace(/({|}|;|\*\/)\s*/g, '$1\n');
-	document.head.appendChild(style);
+
 })();
