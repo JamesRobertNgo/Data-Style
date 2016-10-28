@@ -1,6 +1,7 @@
 
 /* -------------------------------------------------------------------------------- *\
-   Data Styles
+   Data-Styles-JS
+   https://github.com/JamesRobertNgo/Data-Style-JS/
    
    By James Robert Huggins Ngo
    https://github.com/JamesRobertNgo/
