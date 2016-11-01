@@ -1,2 +1,3 @@
-# Data-Style
+# Data-Style-JS
+
 Inline Media Query through JavaScript
